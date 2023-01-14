@@ -27,7 +27,7 @@ def modeI():
         if not cmd.run():
 
             print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
-            print(line)
+            print(lines[varmanager.commandsList.index(cmd)])
             print(f"\n{Fore.BLUE}^")
             print("| Error on this line\n")
             sys.exit(0)
