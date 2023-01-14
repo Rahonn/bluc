@@ -76,6 +76,11 @@ def getCommand(line):
     if re.search(r"^ENDLOOP", line, re.MULTILINE):
         
         return LoopEnd(line)
+    
+    if re.search(r"^BREAKLOOP", line, re.MULTILINE):
+        
+        return LoopBreak(line)
+        
         
     return ErrorOut(line)
         
