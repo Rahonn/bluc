@@ -65,45 +65,19 @@ def modeH():
     print("Exit\t-\tExit the app\t-\tEXIT")
     print("Import\t-\tUse the import command to load code from a different file. Replace [path] with the path to the bluc file include the file extension\t-\tIMPORT [path]")
     print("Pass\t-\tThis command does not do anything!\t-\tPASS")
+    print(
+        "Loops\t-\tUse LOOPSTART [index varname] [times] replace [times] with @ for a infinite number of times. Use BREAKLOOP to break out of a loop. Use ENDLOOP to end a loop\t-\t\n\tLOOP index 5\n\tPRINTVAR index\n\tRUNIF $index == 3 |BREAKLOOP|PASS|\n\tENDLOOP")
     print()
     print(f"\t{Fore.RED}Comands Options{Fore.RESET}")
     print(f"{Fore.MAGENTA}Interpret\t-\tTo run code\t-\t./BLUC -i [filename]")
     print("Debug\t-\tInterprets and Compiles your code\t-\t./BLUC -d [filename]")
-    print("Playground\t-\tEnter the code playground\t-\t./BLUC -p")
     print("Help\t-\tTo get this info\t-\t./BLUC --help")
     print(f"Version\t-\tTo get the BLUC version number\t-\t./BLUC --version{Fore.RESET}")
     modeV()
 
 def modeV():
     
-    print(f'{Fore.LIGHTGREEN_EX}BLUC version: {varmanager.vars["VERSION"]}{Fore.RESET}')
-    
-def modeP():
-    
-    print(f"{Fore.LIGHTCYAN_EX}Starting playground...")
-    print(f"{Fore.LIGHTBLUE_EX}At any time type EXIT to quit")
-    
-    print(f"{Fore.MAGENTA}Welcome to the playground!")
-    print()
-    
-    while True:
-        
-        line = input(f"{Fore.GREEN}BLUC >>> ")
-        
-        if line == "$exit":
-            
-            print(f"{Fore.MAGENTA}Goodbye!")
-            sys.exit(0)
-            
-        
-        cmd = commands.getCommand(line)
-        
-        print(Fore.MAGENTA, end="")
-        if not cmd.run():
-            
-            print(f"{Fore.RED}Thats a error!")
-            
-        
+    print(f'{Fore.LIGHTGREEN_EX}BLUC version: {varmanager.vars["VERSION"]}{Fore.RESET}')     
 
 if len(sys.argv) <= 1:
     
@@ -129,6 +103,3 @@ if mode.lower() == "--version" or mode.lower() == "-version" or mode.lower() == 
 
     modeV()
     
-if mode.lower() == "-p":
-    
-    modeP()

@@ -13,7 +13,3 @@ To debug
 To get help
 
 `./bluc --help`
-
-To enter the playground
-
-`./bluc -p`
