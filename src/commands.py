@@ -13,6 +13,7 @@ from codes.runifcmd import RunIfCmd
 from codes.exitcmd import ExitCmd
 from codes.importcmd import ImportCmd
 from codes.passcmd import PassCmd
+from codes.loops import *
 
 
 def getCommand(line):
@@ -66,7 +67,15 @@ def getCommand(line):
     if re.search(r"^PASS", line, re.MULTILINE):
         
         return PassCmd(line)
+
+    if re.search(r"^LOOP", line, re.MULTILINE):
         
+        return LoopStart(line)
+    
+    
+    if re.search(r"^ENDLOOP", line, re.MULTILINE):
+        
+        return LoopEnd(line)
         
     return ErrorOut(line)
         
