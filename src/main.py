@@ -37,16 +37,18 @@ def modeD():
     
     print(f"{Fore.BLUE}Running code...{Fore.GREEN}\n")
     modeI()
+    print(f"{Fore.CYAN}")
+    varmanager.var_dump()
     varmanager.vars = varmanager.defaultvars
     print(f"{Fore.BLUE}")
     isgood = input("Is this ok? (y or n): ")
     if isgood == "y":
         
-        print(f"Thanks for using BLUC")
+        print(f"{Fore.BLUE}Thanks for using BLUC")
         
     else:
         
-        print(f"Goodbye!{Fore.RESET}")
+        print(f"{Fore.BLUE}Goodbye!{Fore.RESET}")
         
     
 def modeH():
