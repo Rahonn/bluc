@@ -11,6 +11,7 @@ class LoopStart(Command):
     index = None
     times = None
     indexVarname = None
+    isWhile = None
     
     def __init__(self, line):
         super().__init__(line)
@@ -23,6 +24,9 @@ class LoopStart(Command):
         self.index = varmanager.commandsList.index(self)
         self.indexVarname = self.text.split(" ")[0]
         self.times = self.text.split(" ")[1]
+        self.isWhile = False
+        
+        
         
         try:
             
@@ -30,9 +34,27 @@ class LoopStart(Command):
             
         except:
             
-            self.times = int(varmanager.vars[self.times])
+            self.times = varmanager.vars[self.times]
             
-        
+            
+        if self.times == "@":
+            
+            self.isWhile = True
+            
+        else:
+            
+            self.isWhile = False
+            
+            try:
+
+                self.times = int(self.times)
+
+            except:
+
+                self.times = varmanager.vars[self.times]
+
+
+
         startingIndex = self.index + 1
         length = len(varmanager.commandsList)
         
@@ -50,36 +72,75 @@ class LoopStart(Command):
         
     def execute(self):
         
-        varmanager.runningLoop = True
-    
-        for i in range(self.times):
+        if self.isWhile:
             
-            varmanager.vars[self.indexVarname] = float(i)
-            
-            if not varmanager.runningLoop:
 
-                break
+            varmanager.runningLoop = True
+
+            i = 0.0
             
-            for cmd in self.commandList:
-                
-                ncmd = copy.deepcopy(cmd)
-                
-                
+            while True:
+
+                varmanager.vars[self.indexVarname] = float(i)
+
                 if not varmanager.runningLoop:
-                    
+
                     break
-                
-                
-                if not ncmd.run():
+
+                for cmd in self.commandList:
+
+                    ncmd = copy.deepcopy(cmd)
+
+                    if not varmanager.runningLoop:
+
+                        break
+
+                    ncmdg = ncmd.run()
+
+                    if not ncmdg:
+
+                        return False
                     
-                    return False
-                
-    
-        varmanager.runningLoop = False
+                i += 1.0
+
+            varmanager.runningLoop = False
+
+            for item in self.commandList:
+
+                varmanager.commandsList.remove(item)
         
-        for item in self.commandList:
+        else:
             
-            varmanager.commandsList.remove(item)
+            varmanager.runningLoop = True
+
+            for i in range(self.times):
+
+                varmanager.vars[self.indexVarname] = float(i)
+
+                if not varmanager.runningLoop:
+
+                    break
+
+                for cmd in self.commandList:
+
+                    ncmd = copy.deepcopy(cmd)
+
+                    if not varmanager.runningLoop:
+
+                        break
+
+                    
+                    ncmdg = ncmd.run()
+
+                    if not ncmdg:
+
+                        return False
+
+            varmanager.runningLoop = False
+
+            for item in self.commandList:
+
+                varmanager.commandsList.remove(item)
     
         
         
