@@ -8,9 +8,9 @@ from codes.errorout import ErrorOut
 
 
 
-def modeI():
+def modeI(filename):
     
-    with open(sys.argv[2], "r") as f:
+    with open(filename, "r") as f:
 
         fileData = f.read()
         
@@ -36,7 +36,7 @@ def modeI():
 def modeD():
     
     print(f"{Fore.BLUE}Running code...{Fore.GREEN}\n")
-    modeI()
+    modeI(sys.argv[2])
     print(f"{Fore.CYAN}")
     varmanager.var_dump()
     varmanager.vars = varmanager.defaultvars
@@ -74,6 +74,7 @@ def modeH():
     print(f"{Fore.MAGENTA}Interpret\t-\tTo run code\t-\t./BLUC -i [filename]")
     print("Debug\t-\tInterprets and Compiles your code\t-\t./BLUC -d [filename]")
     print("Help\t-\tTo get this info\t-\t./BLUC --help")
+    print("Run\t-\tUse to run your code\t-\t./BLUC [filename]")
     print(f"Version\t-\tTo get the BLUC version number\t-\t./BLUC --version{Fore.RESET}")
     modeV()
 
@@ -91,17 +92,20 @@ mode = sys.argv[1]
             
 if mode.lower() == "-i":
     
-    modeI()
+    modeI(sys.argv[2])
 
-if mode.lower() == "-d":
+elif mode.lower() == "-d":
     
     modeD()
 
-if mode.lower() == "--help" or mode.lower() == "-help" or mode.lower() == "-h":
+elif mode.lower() == "--help" or mode.lower() == "-help" or mode.lower() == "-h":
     
     modeH()
     
-if mode.lower() == "--version" or mode.lower() == "-version" or mode.lower() == "-v":
+elif mode.lower() == "--version" or mode.lower() == "-version" or mode.lower() == "-v":
 
     modeV()
     
+else:
+    
+    modeI(sys.argv[1])
