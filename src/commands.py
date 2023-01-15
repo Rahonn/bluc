@@ -15,6 +15,7 @@ from codes.importcmd import ImportCmd
 from codes.passcmd import PassCmd
 from codes.loops import *
 from codes.files import *
+from codes.stringcmd import *
 
 
 def getCommand(line, index=None):
@@ -85,6 +86,10 @@ def getCommand(line, index=None):
     if re.search(r"^READFILE", line, re.MULTILINE):
 
         return ReadFile(line, index)
+
+    if re.search(r"^CONCAT", line, re.MULTILINE):
+
+        return ConcatString(line, index)
         
     return ErrorOut(line, index)
         

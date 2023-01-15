@@ -70,6 +70,7 @@ def modeH():
     print(
         "Loops\t-\tUse LOOPSTART [index varname] [times] replace [times] with @ for a infinite number of times. Use BREAKLOOP to break out of a loop. Use ENDLOOP to end a loop\t-\t\n\tLOOP index 5\n\tPRINTVAR index\n\tRUNIF $index == 3 |BREAKLOOP|PASS|\n\tENDLOOP")
     print("Read file\t-\tUse to read files\t-\tREADFILE [output] [filepath]")
+    print("String Concat\t-\tUse to add 2 vars to together as text. If you add 2 and 3 you will get 23. If your add Hello and World you will get Hello World. Replace [arg1] or [arg2] with plain text or for a var put a $ at the start pf the name\t-\tCONCAT [outputvarname] |[arg1]|[arg2]|")
     print()
     print(f"\t{Fore.RED}Comands Options{Fore.RESET}")
     print(f"{Fore.MAGENTA}Interpret\t-\tTo run code\t-\t./BLUC -i [filename]")
