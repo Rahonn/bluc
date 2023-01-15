@@ -16,7 +16,7 @@ class Delay(Command):
         
         if re.search(r"^\$", self.time):
             
-            self.time = int(varmanager.vars[self.time[1::]])
+            self.time = float(varmanager.vars[self.time[1::]])
             
         
         try:
