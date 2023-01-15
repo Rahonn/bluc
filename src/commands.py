@@ -13,9 +13,9 @@ from codes.runifcmd import RunIfCmd
 from codes.exitcmd import ExitCmd
 from codes.importcmd import ImportCmd
 from codes.passcmd import PassCmd
-from codes.loops import *
-from codes.files import *
-from codes.stringcmd import *
+from codes.loops import LoopStart, LoopEnd, LoopBreak
+from codes.files import ReadFile, WriteFile
+from codes.stringcmd import ConcatString
 
 
 def getCommand(line, index=None):
@@ -90,6 +90,10 @@ def getCommand(line, index=None):
     if re.search(r"^CONCAT", line, re.MULTILINE):
 
         return ConcatString(line, index)
+    
+    if re.search(r"^WRITEFILE", line, re.MULTILINE):
+        
+        return WriteFile(line, index)
         
     return ErrorOut(line, index)
         
