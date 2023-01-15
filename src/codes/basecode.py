@@ -4,9 +4,11 @@ class Command(ABC):
     
     line = None
 
-    def __init__(self, line):
+    def __init__(self, line, index=None):
 
         self.line = line
+        self.index = index
+        
 
 
     @abstractmethod

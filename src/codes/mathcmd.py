@@ -12,8 +12,8 @@ class MathCmd(Command):
     val1 = None
     val2 = None
     
-    def __init__(self, line):
-        super().__init__(line)
+    def __init__(self, line, index):
+        super().__init__(line, index)
         self.lineNOSTART = self.line[5::]
         
         self.varname = self.lineNOSTART.split(" ")[0]

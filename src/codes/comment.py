@@ -4,8 +4,8 @@ COMMENT_CHAR = '#'
 
 class Comment(Command):
     
-    def __init__(self, line):
-        super().__init__(line)
+    def __init__(self, line, index):
+        super().__init__(line, index)
         
     def run(self):
         return True

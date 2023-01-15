@@ -10,8 +10,8 @@ class ImportCmd(Command):
     lines = None
     commandList = None
     
-    def __init__(self, line):
-        super().__init__(line)
+    def __init__(self, line, index):
+        super().__init__(line, index)
         self.path = line[7::]
         
     def loadFile(self):
@@ -19,6 +19,7 @@ class ImportCmd(Command):
         with open(self.path, "r") as f:
             
             self.filedata = f.read()
+            
             
     def addToCommandList(self):
         
@@ -33,10 +34,16 @@ class ImportCmd(Command):
             self.commandList.append(cmd)
         
         
-        cindex = varmanager.commandsList.index(self)
+        if self.index is not None:
+            
+            cindex = self.index
+            
+        else:
+            
+            cindex = varmanager.commandsList.index(self)
         
         cindex += 1
-        
+    
         for cc in self.commandList:
             
             varmanager.commandsList.insert(cindex, cc)

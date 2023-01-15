@@ -19,8 +19,8 @@ class IfCmd(Command):
     arg1isStr = None
     arg2isStr = None
     
-    def __init__(self, line):
-        super().__init__(line)
+    def __init__(self, line, index):
+        super().__init__(line, index)
         self.text = line[3::]
         
         spaceSpilt = self.text.split(" ")

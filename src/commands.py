@@ -16,70 +16,70 @@ from codes.passcmd import PassCmd
 from codes.loops import *
 
 
-def getCommand(line):
+def getCommand(line, index=None):
     
     
     if re.search(r"^PRINT ", line, re.MULTILINE):
         
-        return Printer(line)
+        return Printer(line, index)
     
     if re.search(f"^{COMMENT_CHAR}", line, re.MULTILINE) or line.strip() == "":
         
-        return Comment(line)
+        return Comment(line, index)
     
     if re.search(r"^SET ", line, re.MULTILINE):
         
-        return SetVars(line)
+        return SetVars(line, index)
     
     if re.search(r"^PRINTVAR ", line, re.MULTILINE):
         
-        return PrintVar(line)
+        return PrintVar(line, index)
     
     if re.search(r"^INPUT ", line, re.MULTILINE):
         
-        return Input(line)
+        return Input(line, index)
     
     if re.search(r"^MATH", line, re.MULTILINE):
         
-        return MathCmd(line)
+        return MathCmd(line, index)
     
     if re.search(r"^DELAY", line, re.MULTILINE):
 
-        return Delay(line)
+        return Delay(line, index)
     
     
     if re.search(r"^IF", line, re.MULTILINE):
         
-        return IfCmd(line)
+        return IfCmd(line), index
     
     if re.search(r"^RUNIF", line, re.MULTILINE):
 
-        return RunIfCmd(line)
+        return RunIfCmd(line, index)
     
     if re.search(r"^EXIT", line, re.MULTILINE):
         
-        return ExitCmd(line)
+        return ExitCmd(line, index)
     
     if re.search(r"^IMPORT", line, re.MULTILINE):
         
-        return ImportCmd(line)
+        return ImportCmd(line, index)
     
     if re.search(r"^PASS", line, re.MULTILINE):
         
-        return PassCmd(line)
+        return PassCmd(line, index)
 
     if re.search(r"^LOOP", line, re.MULTILINE):
         
-        return LoopStart(line)
+        return LoopStart(line, index)
     
     
     if re.search(r"^ENDLOOP", line, re.MULTILINE):
         
-        return LoopEnd(line)
+        return LoopEnd(line, index)
     
     if re.search(r"^BREAKLOOP", line, re.MULTILINE):
         
-        return LoopBreak(line)
+        return LoopBreak(line, index)
         
         
     return ErrorOut(line)

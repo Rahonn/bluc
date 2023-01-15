@@ -5,8 +5,8 @@ from codes.basecode import Command
 
 class ExitCmd(Command):
     
-    def __init__(self, line):
-        super().__init__(line)
+    def __init__(self, line, index):
+        super().__init__(line, index)
         
     def run(self) -> bool:
         sys.exit(0)

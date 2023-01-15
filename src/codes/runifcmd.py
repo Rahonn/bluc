@@ -23,8 +23,8 @@ class RunIfCmd(Command):
     arg1isStr = None
     arg2isStr = None
     
-    def __init__(self, line):
-        super().__init__(line)
+    def __init__(self, line, index):
+        super().__init__(line, index)
         self.text = line[6::]
         
         spaceSpilt = self.text.split(" ")
@@ -199,11 +199,13 @@ class RunIfCmd(Command):
 
         try:
             
+            cindex = varmanager.commandsList.index(self)
+            
             if self.op == "<":
 
                 if self.arg1 < self.arg2:
                 
-                    if not commands.getCommand(self.iftrue).run():
+                    if not commands.getCommand(self.iftrue, cindex).run():
                         
                         print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
                         print(self.line)
@@ -215,7 +217,7 @@ class RunIfCmd(Command):
                     
                 else:
                     
-                    if not commands.getCommand(self.iffalse).run():
+                    if not commands.getCommand(self.iffalse, cindex).run():
 
                         print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
                         print(self.line)
@@ -229,7 +231,7 @@ class RunIfCmd(Command):
 
                 if self.arg1 > self.arg2:
 
-                    if not commands.getCommand(self.iftrue).run():
+                    if not commands.getCommand(self.iftrue, cindex).run():
                         
                         print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
                         print(self.line)
@@ -241,7 +243,7 @@ class RunIfCmd(Command):
 
                 else:
 
-                    if not commands.getCommand(self.iffalse).run():
+                    if not commands.getCommand(self.iffalse, cindex).run():
 
                         print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
                         print(self.line)
@@ -255,7 +257,7 @@ class RunIfCmd(Command):
 
                 if self.arg1 == self.arg2:
 
-                    if not commands.getCommand(self.iftrue).run():
+                    if not commands.getCommand(self.iftrue, cindex).run():
                         
                         print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
                         print(self.line)
@@ -267,7 +269,7 @@ class RunIfCmd(Command):
 
                 else:
 
-                    if not commands.getCommand(self.iffalse).run():
+                    if not commands.getCommand(self.iffalse, cindex).run():
 
                         print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
                         print(self.line)
@@ -281,7 +283,7 @@ class RunIfCmd(Command):
 
                 if not self.arg1 == self.arg2:
 
-                    if not commands.getCommand(self.iftrue).run():
+                    if not commands.getCommand(self.iftrue, cindex).run():
                         
                         print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
                         print(self.line)
@@ -293,7 +295,7 @@ class RunIfCmd(Command):
 
                 else:
 
-                    if not commands.getCommand(self.iffalse).run():
+                    if not commands.getCommand(self.iffalse, cindex).run():
 
                         print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
                         print(self.line)
@@ -307,7 +309,7 @@ class RunIfCmd(Command):
 
                 if self.arg1 >= self.arg2:
 
-                    if not commands.getCommand(self.iftrue).run():
+                    if not commands.getCommand(self.iftrue, cindex).run():
                         
                         print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
                         print(self.line)
@@ -319,7 +321,7 @@ class RunIfCmd(Command):
 
                 else:
 
-                    if not commands.getCommand(self.iffalse).run():
+                    if not commands.getCommand(self.iffalse, cindex).run():
 
                         print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
                         print(self.line)
@@ -333,7 +335,7 @@ class RunIfCmd(Command):
 
                 if self.arg1 <= self.arg2:
 
-                    if not commands.getCommand(self.iftrue).run():
+                    if not commands.getCommand(self.iftrue, cindex).run():
                         
                         print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
                         print(self.line)
@@ -345,7 +347,7 @@ class RunIfCmd(Command):
 
                 else:
 
-                    if not commands.getCommand(self.iffalse).run():
+                    if not commands.getCommand(self.iffalse, cindex).run():
 
                         print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
                         print(self.line)

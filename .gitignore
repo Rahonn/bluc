@@ -8,3 +8,4 @@ output
 .DS_Store
 .dccache
 grep.py
+.vscode

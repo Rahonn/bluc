@@ -8,8 +8,8 @@ class Delay(Command):
     
     time = None
     
-    def __init__(self, line):
-        super().__init__(line)
+    def __init__(self, line, index):
+        super().__init__(line, index)
         self.time = line[6::]
     
     def run(self) -> bool:

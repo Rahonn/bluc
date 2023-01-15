@@ -13,8 +13,8 @@ class LoopStart(Command):
     indexVarname = None
     isWhile = None
     
-    def __init__(self, line):
-        super().__init__(line)
+    def __init__(self, line, index):
+        super().__init__(line, index)
         self.text = self.line[5::]
         
         self.commandList = []
@@ -160,8 +160,8 @@ class LoopStart(Command):
 
 class LoopEnd(Command):
     
-    def __init__(self, line):
-        super().__init__(line)
+    def __init__(self, line, index):
+        super().__init__(line, index)
         
         
     def run(self) -> bool:
@@ -174,8 +174,8 @@ class LoopEnd(Command):
 
 class LoopBreak(Command):
     
-    def __init__(self, line):
-        super().__init__(line)
+    def __init__(self, line, index):
+        super().__init__(line, index)
 
     def run(self) -> bool:
         varmanager.runningLoop = False
