@@ -14,6 +14,7 @@ from codes.exitcmd import ExitCmd
 from codes.importcmd import ImportCmd
 from codes.passcmd import PassCmd
 from codes.loops import *
+from codes.files import *
 
 
 def getCommand(line, index=None):
@@ -80,8 +81,11 @@ def getCommand(line, index=None):
     if re.search(r"^BREAKLOOP", line, re.MULTILINE):
         
         return LoopBreak(line, index)
+    
+    if re.search(r"^READFILE", line, re.MULTILINE):
+
+        return ReadFile(line, index)
         
-        
-    return ErrorOut(line)
+    return ErrorOut(line, index)
         
     

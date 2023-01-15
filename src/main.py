@@ -69,6 +69,7 @@ def modeH():
     print("Pass\t-\tThis command does not do anything!\t-\tPASS")
     print(
         "Loops\t-\tUse LOOPSTART [index varname] [times] replace [times] with @ for a infinite number of times. Use BREAKLOOP to break out of a loop. Use ENDLOOP to end a loop\t-\t\n\tLOOP index 5\n\tPRINTVAR index\n\tRUNIF $index == 3 |BREAKLOOP|PASS|\n\tENDLOOP")
+    print("Read file\t-\tUse to read files\t-\tREADFILE [output] [filepath]")
     print()
     print(f"\t{Fore.RED}Comands Options{Fore.RESET}")
     print(f"{Fore.MAGENTA}Interpret\t-\tTo run code\t-\t./BLUC -i [filename]")
