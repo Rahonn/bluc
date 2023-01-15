@@ -50,7 +50,7 @@ def getCommand(line, index=None):
     
     if re.search(r"^IF", line, re.MULTILINE):
         
-        return IfCmd(line), index
+        return IfCmd(line, index)
     
     if re.search(r"^RUNIF", line, re.MULTILINE):
 
