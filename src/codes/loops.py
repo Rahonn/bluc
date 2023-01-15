@@ -26,15 +26,6 @@ class LoopStart(Command):
         self.times = self.text.split(" ")[1]
         self.isWhile = False
         
-        
-        
-        try:
-            
-            self.times = int(self.times)
-            
-        except:
-            
-            self.times = varmanager.vars[self.times]
             
             
         if self.times == "@":
