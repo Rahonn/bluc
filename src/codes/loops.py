@@ -63,6 +63,10 @@ class LoopStart(Command):
         
     def execute(self):
         
+        if self.times == "@":
+            
+            self.isWhile = True
+        
         if self.isWhile:
             
 
@@ -104,7 +108,7 @@ class LoopStart(Command):
             
             varmanager.runningLoop = True
 
-            for i in range(self.times):
+            for i in range(int(self.times)):
 
                 varmanager.vars[self.indexVarname] = float(i)
 
