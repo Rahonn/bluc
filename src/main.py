@@ -59,7 +59,7 @@ def modeH():
     print("Set\t-\tTo set a var\t-\tSET [varname] = [value]")
     print("Input\t-\tTo get user input\t-\tINPUT [varname]")
     print("Math\t-\tOperators +, -, *, /, **, RAND and store the result to a new var. If you are using RAND you can make num1 and num2 @ for no set range\t-\tMATH [varname] [operator] [num1] [num2]")
-    print("Delay\t-\tAdd a delay to your code\t-\tDELAY [seconds]")
+    print("Delay\t-\tAdd a delay to your code. You can use a var just place a varname in it but put a $ at the start\t-\tDELAY [seconds]")
     print("Comments\t-\tUse # for comments\t-\t# [comment]")
     print("If\t-\tAn if system. Replace varname with the name of the outvar, replace args with the args use for string with this put a ! at the start and end and if you are using a var as a arg put a $ at the start of it's name\t-\tIF [varname] [arg1] [op] [arg2] :[outiftrue]:[outiffalse]:")
     print(

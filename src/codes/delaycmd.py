@@ -1,6 +1,8 @@
+import re
 import time
 
 from codes.basecode import Command
+import varmanager
 
 class Delay(Command):
     
@@ -11,6 +13,11 @@ class Delay(Command):
         self.time = line[6::]
     
     def run(self) -> bool:
+        
+        if re.search(r"^\$", self.time):
+            
+            self.time = int(varmanager.vars[self.time[1::]])
+            
         
         try:
             
