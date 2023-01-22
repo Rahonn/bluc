@@ -16,6 +16,7 @@ from codes.passcmd import PassCmd
 from codes.loops import LoopStart, LoopEnd, LoopBreak
 from codes.files import ReadFile, WriteFile
 from codes.stringcmd import ConcatString
+from codes.time import Time
 
 
 def getCommand(line, index=None):
@@ -94,6 +95,10 @@ def getCommand(line, index=None):
     if re.search(r"^WRITEFILE", line, re.MULTILINE):
         
         return WriteFile(line, index)
+
+    if re.search(r"^TIME", line, re.MULTILINE):
+        
+        return Time(line, index)
         
     return ErrorOut(line, index)
         
