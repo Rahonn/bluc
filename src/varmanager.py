@@ -1,16 +1,18 @@
 vars = {
     
-    "VERSION": "11.0.0"
+    "VERSION": "12.0.0"
     
 }
 
 defaultvars = {
 
-    "VERSION": "11.0.0"
+    "VERSION": "12.0.0"
 
 }
 
 commandsList = []
+
+functions = {}
 
 runningLoop = False
 

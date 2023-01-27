@@ -17,6 +17,7 @@ from codes.loops import LoopStart, LoopEnd, LoopBreak
 from codes.files import ReadFile, WriteFile
 from codes.stringcmd import ConcatString
 from codes.time import Time
+from codes.funcs import FnStart, FnEnd, FnCall
 
 
 def getCommand(line, index=None):
@@ -99,7 +100,19 @@ def getCommand(line, index=None):
     if re.search(r"^TIME", line, re.MULTILINE):
         
         return Time(line, index)
+
+    if re.search(r"^FNDEF", line, re.MULTILINE):
         
+        return FnStart(line, index)
+
+    if re.search(r"^FNEND", line, re.MULTILINE):
+
+        return FnEnd(line, index)
+
+    if re.search(r"^FNCALL", line, re.MULTILINE):
+
+        return FnCall(line, index)
+
     return ErrorOut(line, index)
         
     
