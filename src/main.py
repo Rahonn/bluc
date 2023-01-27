@@ -75,6 +75,8 @@ def modeH():
     print("Time Get\t-\tGet the current system time and store the result in a var\t-\tTIME GET [outputvar]")
     print(
         "Functions\t-\tUse FNDEF [functionname]. Use FNEND to end a function. Use FNCALL [functionname] to call a function!\t-\t\n\tFNDEF myFunc\n\tPRINT This is my func\n\tFNEND\n\tFNCALL myFunc\n\tFNCALL myFunc")
+    print(
+        "Interp\t-\tUse to test if the code is running with a certain interpreter\t-\tINTERP [interpretername]")
     print()
     print(f"\t{Fore.RED}Comands Options{Fore.RESET}")
     print(f"{Fore.MAGENTA}Interpret\t-\tTo run code\t-\t./BLUC -i [filename]")
