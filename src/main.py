@@ -73,6 +73,8 @@ def modeH():
     print("Write file\t-\tUse to write files\t-\tWRITEFILE [inputvar] [filepath]")
     print("String Concat\t-\tUse to add 2 vars to together as text. If you add 2 and 3 you will get 23. If your add Hello and World you will get Hello World. Replace [arg1] or [arg2] with plain text or for a var put a $ at the start of the name\t-\tCONCAT [outputvarname] |[arg1]|[arg2]|")
     print("Time Get\t-\tGet the current system time and store the result in a var\t-\tTIME GET [outputvar]")
+    print(
+        "Functions\t-\tUse FNDEF [functionname]. Use FNEND to end a function. Use FNCALL [functionname] to call a function!\t-\t\n\tFNDEF myFunc\n\tPRINT This is my func\n\tFNEND\n\tFNCALL myFunc\n\tFNCALL myFunc")
     print()
     print(f"\t{Fore.RED}Comands Options{Fore.RESET}")
     print(f"{Fore.MAGENTA}Interpret\t-\tTo run code\t-\t./BLUC -i [filename]")
