@@ -18,6 +18,7 @@ from codes.files import ReadFile, WriteFile
 from codes.stringcmd import ConcatString
 from codes.time import Time
 from codes.funcs import FnStart, FnEnd, FnCall
+from codes.interp import Interp
 
 
 def getCommand(line, index=None):
@@ -112,6 +113,10 @@ def getCommand(line, index=None):
     if re.search(r"^FNCALL", line, re.MULTILINE):
 
         return FnCall(line, index)
+    
+    if re.search(r"^INTERP", line, re.MULTILINE):
+        
+        return Interp(line, index)
 
     return ErrorOut(line, index)
         
