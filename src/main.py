@@ -131,6 +131,11 @@ def modeH():
     print("Debug\t-\tInterprets and Compiles your code\t-\t./BLUC -d [filename]")
     print("Help\t-\tTo get this info\t-\t./BLUC --help")
     print("Run\t-\tUse to run your code\t-\t./BLUC [filename]")
+    print("Compile\t-\tUse to compile your code\t-\t./BLUC -c [filename] [outputfile]")
+    print(
+        "Run Compiled Code\t-\tUse to run your compiled code\t-\t./BLUC -rc [filename] [outputfile]")
+    print(
+        "Debug Compiled Code\t-\tUse to debug your compiled code\t-\t./BLUC -drc [filename] [outputfile]")
     print(f"Version\t-\tTo get the BLUC version number\t-\t./BLUC --version{Fore.RESET}")
     modeV()
 
