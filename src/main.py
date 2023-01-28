@@ -5,6 +5,7 @@ from colorama import Fore
 import commands
 import varmanager
 from codes.errorout import ErrorOut
+import compile
 
 
 
@@ -27,11 +28,58 @@ def modeI(filename):
         if not cmd.run():
 
             print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
-            print(lines[varmanager.commandsList.index(cmd)])
+            print(cmd.line)
             print(f"\n{Fore.BLUE}^")
             print("| Error on this line\n")
             sys.exit(0)
  
+ 
+def modeC(filename, out="build.cbluc"):
+
+    with open(filename, "r") as f:
+
+        fileData = f.read()
+
+    lines = fileData.split("\n")
+
+    for line in lines:
+
+        cmd = commands.getCommand(line)
+
+        varmanager.commandsList.append(cmd)
+
+    compile.save(compile.CompileSave(varmanager.commandsList), out)
+    
+    print(f"{Fore.BLUE}Code Compiled!{Fore.RESET}")
+    
+def modeRC(filename):
+
+    compile.load(filename)
+    
+    for cmd in varmanager.commandsList:
+
+        if not cmd.run():
+
+            print(f"{Fore.RED}\nError!!!{Fore.RESET}\n")
+            sys.exit(0)
+
+
+def modeDRC(filename):
+
+    print(f"{Fore.BLUE}Running code...{Fore.GREEN}\n")
+    modeRC(filename)
+    print(f"{Fore.CYAN}")
+    varmanager.var_dump()
+    varmanager.vars = varmanager.defaultvars
+    print(f"{Fore.BLUE}")
+    isgood = input("Is this ok? (y or n): ")
+    if isgood == "y":
+
+        print(f"{Fore.BLUE}Thanks for using BLUC")
+
+    else:
+
+        print(f"{Fore.BLUE}Goodbye!{Fore.RESET}")
 
 def modeD():
     
@@ -105,6 +153,24 @@ if mode.lower() == "-i":
 elif mode.lower() == "-d":
     
     modeD()
+
+elif mode.lower() == "-c":
+    
+    if len(sys.argv) >= 4:
+        
+        modeC(sys.argv[2], sys.argv[3])
+    
+    else:
+        
+        modeC(sys.argv[2])
+        
+elif mode.lower() == "-rc":
+    
+    modeRC(sys.argv[2])    
+    
+elif mode.lower() == "-drc":
+    
+    modeDRC(sys.argv[2])    
 
 elif mode.lower() == "--help" or mode.lower() == "-help" or mode.lower() == "-h":
     
